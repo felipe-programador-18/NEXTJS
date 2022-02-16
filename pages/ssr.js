@@ -7,7 +7,10 @@ const Ssr =  () => {
         <>
         <h1>This is side serving rendering</h1>
 
-        <pre></pre>
+        <pre> Think about my future </pre>
     </>
         )
 }
+
+
+export default Ssr

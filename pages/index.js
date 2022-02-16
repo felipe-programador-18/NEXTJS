@@ -1,6 +1,9 @@
 
 import { useEffect, useState } from "react"
 import useSWR from "swr"
+import Link from "next/link"
+
+
 //guidance one
 // this is one page static!!!
 //because page not change.
@@ -20,6 +23,9 @@ const Home =  () => {
      return( 
         <> 
         <h1>Hi there!! {count} </h1> 
+        <Link href='/ssr'> 
+        <a>Ssr</a>
+         </Link>
         <pre> {JSON.stringify(data)} </pre>
         </>
         )
