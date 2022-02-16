@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import useSWR from "swr"
 import Link from "next/link"
 
-
 //guidance one
 // this is one page static!!!
 //because page not change.
@@ -24,8 +23,15 @@ const Home =  () => {
         <> 
         <h1>Hi there!! {count} </h1> 
         <Link href='/ssr'> 
-        <a>Ssr</a>
+        <a> Blog (Ssr)</a>
          </Link>
+         
+        <Link href='/blog'>
+        <a>SSG</a>
+        </Link>
+
+
+
         <pre> {JSON.stringify(data)} </pre>
         </>
         )
