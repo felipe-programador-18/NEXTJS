@@ -1,7 +1,7 @@
 // with this mode i can create diverse page is very interesting!!!
 // i create new folder to adding and create new file seeing and practice about that !!
 
-const post = (props) => {
+const Post = (props) => {
     return (
         <>
         
@@ -12,21 +12,26 @@ const post = (props) => {
     )
 }
 
-export async function  getStaticProps(context) {
+export async function  getStaticProps({params}) {
     return {
         props: {
             data: new Date().getTime(),
-            name:'Programmer Femartins'
+            name:'Programmer Femartins',
+            id: params.id
         }
     }
  }
  
 
-export async function getStaticPathc(){
+export async function getStaticPaths(){
     return {
-        paths: [{params : {id:'1'}} , {params: {id:5} } ] 
+        paths:[ 
+                  {params:{id:'1'}}
+                , {params:{id:'5'}} 
+            ],
+        fallback:false,  
     }
 } 
  
  
- export default post
+ export default Post
