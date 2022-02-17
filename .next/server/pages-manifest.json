@@ -1,10 +1,6 @@
 {
-  "/blog": "pages/blog.js",
-  "/": "pages/index.html",
-  "/posts/[id]": "pages/posts/[id].js",
-  "/ssr": "pages/ssr.js",
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/404": "pages/404.html"
+  "/posts/[id]": "pages/posts/[id].js"
 }
