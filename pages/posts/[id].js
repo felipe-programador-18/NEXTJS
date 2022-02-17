@@ -16,7 +16,7 @@ export async function  getStaticProps({params}) {
     return {
         props: {
             data: new Date().getTime(),
-            name:'Programmer Femartins',
+            name:'Programmer Fe-18',
             id: params.id
         }
     }
