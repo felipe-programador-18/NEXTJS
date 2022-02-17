@@ -10,7 +10,7 @@ const Ssr =  (props) => {
         <>
         <h1>This is side serving rendering</h1> 
          
-        <pre> {JSON.stringify(props, null, 2)} </pre>
+        <pre> {JSON.stringify(props, null,2)} </pre>
     </>
         )
 }
