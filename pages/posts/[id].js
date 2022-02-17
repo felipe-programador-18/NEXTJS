@@ -13,11 +13,14 @@ const Post = (props) => {
 }
 
 export async function  getStaticProps({params}) {
+    const post = await fetch('https://jsonplaceholder.typicode.com/posts' + params.id)
+    const postDat = await post.json
     return {
         props: {
             data: new Date().getTime(),
             name:'Programmer Fe-18',
             id: params.id,
+            post : postDat
          
         },
         revalidate:60,
@@ -29,7 +32,8 @@ export async function getStaticPaths(){
     return {
         paths:[ 
                   {params:{id:'1'}}
-                , {params:{id:'5'}} 
+                , {params:{id:'5'}} ,
+                 
             ],
         fallback:'blocking',  
     }
