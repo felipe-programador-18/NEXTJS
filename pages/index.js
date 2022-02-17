@@ -1,5 +1,7 @@
 
 import { useEffect, useState } from "react"
+
+// SWR I USES TO GET API !!!
 import useSWR from "swr"
 import Link from "next/link"
 
@@ -11,6 +13,7 @@ import Link from "next/link"
 const Home =  () => {
     const [count,setcount] = useState(0)
     // here i am flag data
+    // SWR I USE TO GET API, WITHOUT SWR I DONT DID WORKING API IN PAGE STATIC
     const {data} = useSWR('https://jsonplaceholder.typicode.com/users')
 
     useEffect(() =>{
@@ -21,7 +24,7 @@ const Home =  () => {
 
      return( 
         <> 
-        <h1>Hi there!! {count} </h1> 
+        <h1 className="test">Hi there!! {count} </h1> 
         <Link href='/ssr'> 
         <a> Blog (Ssr)</a>
          </Link>
@@ -30,7 +33,7 @@ const Home =  () => {
         <a>SSG</a>
         </Link>
 
-
+        <p> create new code to test about next page static first steps!! </p>
 
         <pre> {JSON.stringify(data)} </pre>
         </>
