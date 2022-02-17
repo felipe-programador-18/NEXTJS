@@ -17,8 +17,10 @@ export async function  getStaticProps({params}) {
         props: {
             data: new Date().getTime(),
             name:'Programmer Fe-18',
-            id: params.id
-        }
+            id: params.id,
+         
+        },
+        revalidate:60,
     }
  }
  
@@ -29,7 +31,7 @@ export async function getStaticPaths(){
                   {params:{id:'1'}}
                 , {params:{id:'5'}} 
             ],
-        fallback:false,  
+        fallback:'blocking',  
     }
 } 
  
