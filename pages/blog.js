@@ -1,21 +1,40 @@
+import Link from "next/link"
 // SSG
 // this method called static site genaratoin to crete state page
-const Blog = (props) => {
+const Blog = ({posts}) => {
     return (
         <>
         
         <h1>SSG</h1>
+         
+        <ul>
         
-        <pre> {JSON.stringify(props,null, 2)} </pre>
+        {posts.map((post) => {
+            return (<li>  
+                <Link href= {'/posts/'+post.id}>
+                  <a> {post.title} </a> 
+                 </Link> 
+                 
+                 </li>)
+        })}
+        
+        </ul>
+
+
+       
         </>
     )
 }
 
 export async function  getStaticProps(context) {
-   return {
+   
+   const posts = await fetch ('https://jsonplaceholder.typicode.com/posts')
+   const postData = await posts.json()
+    return {
        props: {
            data: new Date().getTime(),
-           name:'Programmer Femartins'
+           name:'Programmer Femartins',
+           posts: postData
        }
    }
 }
