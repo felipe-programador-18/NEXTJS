@@ -15,6 +15,7 @@ const Ssr =  (props) => {
         )
 }
 
+
 export async function getServerSideProps () {
     return{
         props: {
