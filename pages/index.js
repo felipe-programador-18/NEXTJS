@@ -3,6 +3,8 @@ import { useEffect, useState } from "react"
 
 // SWR I USES TO GET API !!!
 import useSWR from "swr"
+
+// this link to acess another page!!
 import Link from "next/link"
 
 //guidance one
