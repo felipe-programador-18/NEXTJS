@@ -5,7 +5,7 @@ const Post = (props) => {
     return (
         <>
         
-        <h1>SSG (POST) </h1>
+        <h1>SSG (POST) {props.post?.title}   </h1>
         
         <pre> {JSON.stringify(props,null, 2)} </pre>
         </>
@@ -13,15 +13,15 @@ const Post = (props) => {
 }
 
 export async function  getStaticProps({params}) {
-    const post = await fetch('https://jsonplaceholder.typicode.com/posts' + params.id)
-    const postDat = await post.json
+    const post = await fetch ('https://jsonplaceholder.typicode.com/posts/1'+params.id)
+    const postData = await post.json()
+    
     return {
         props: {
             data: new Date().getTime(),
             name:'Programmer Fe-18',
             id: params.id,
-            post : postDat
-         
+            post: postData
         },
         revalidate:60,
     }
@@ -29,13 +29,18 @@ export async function  getStaticProps({params}) {
  
 
 export async function getStaticPaths(){
+    const posts = await fetch('https://jsonplaceholder.typicode.com/posts/1')
+    const postData = await posts.json()
+    const paths = postData.map((post) => {
+        return {
+            params: {
+                id: post.id.toString(),
+            }
+        }
+    })
     return {
-        paths:[ 
-                  {params:{id:'1'}}
-                , {params:{id:'5'}} ,
-                 
-            ],
-        fallback:'blocking',  
+        paths: paths,   //[   {params:{id:'1'}}, {params:{id:'5'}}],
+        fallback:'blocking' ,  
     }
 } 
  

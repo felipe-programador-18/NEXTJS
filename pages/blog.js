@@ -14,7 +14,7 @@ const Blog = ({posts}) => {
         {posts.map((post) => {
             return (
                 <li>  
-                  <Link href= {'/posts/'+post.id}>
+                  <Link href= {'/posts/' +post.id}>
                     <a> {post.title} </a> 
                   </Link> 
                  
@@ -31,13 +31,13 @@ const Blog = ({posts}) => {
 
 export async function  getStaticProps(context) {
    
-   const posts = await fetch ('https://jsonplaceholder.typicode.com/posts')
+   const posts = await fetch('https://jsonplaceholder.typicode.com/posts')
    const postData = await posts.json()
     return {
        props: {
            data: new Date().getTime(),
            name:'Programmer Femartins',
-           posts: postData
+           posts: postData,
        }
    }
 }
