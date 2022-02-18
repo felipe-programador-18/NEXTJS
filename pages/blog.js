@@ -10,12 +10,13 @@ const Blog = ({posts}) => {
         <ul>
         
         {posts.map((post) => {
-            return (<li>  
-                <Link href= {'/posts/'+post.id}>
-                  <a> {post.title} </a> 
-                 </Link> 
+            return (
+                <li>  
+                  <Link href= {'/posts/'+post.id}>
+                    <a> {post.title} </a> 
+                  </Link> 
                  
-                 </li>)
+                </li>)
         })}
         
         </ul>
