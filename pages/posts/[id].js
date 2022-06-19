@@ -6,7 +6,7 @@ const Post = (props) => {
         <>
         
         <h1>SSG (POST) {props.post?.title}   </h1>
-        
+           
         <pre> {JSON.stringify(props,null, 2)} </pre>
         </>
     )
@@ -31,7 +31,7 @@ export async function  getStaticProps({params}) {
 export async function getStaticPaths(){
     const posts = await fetch('https://jsonplaceholder.typicode.com/posts/1')
     const postData = await posts.json()
-    const paths = postData.map((post) => {
+    const paths =  postData.map((post) => {
         return {
             params: {
                 id: post.id.toString(),

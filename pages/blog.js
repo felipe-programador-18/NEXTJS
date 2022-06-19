@@ -14,8 +14,9 @@ const Blog = ({posts}) => {
         {posts.map((post) => {
             return (
                 <li>  
-                  <Link href= {'/posts/' +post.id}>
-                    <a> {post.title} </a> 
+                  <Link key={post} href= {'/posts/' +post.id}>
+                    <a > {post.title} </a> 
+                   
                   </Link> 
                  
                 </li>)
